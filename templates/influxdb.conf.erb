@@ -299,11 +299,11 @@ hostname = "<%= @hostname %>"
 
 [[graphite]]
   # Determines whether the graphite endpoint is enabled.
-  enabled = <%= @graphite_enable %>
-  database = "<%= @graphite_database %>"
+  # enabled = false
+  # database = "graphite"
   # retention-policy = ""
-  bind-address = "<%= @graphite_listen %>"
-  protocol = "tcp"
+  # bind-address = ":2003"
+  # protocol = "tcp"
   # consistency-level = "one"
 
   # These next lines  control how batching works. You should  have this enabled
@@ -336,7 +336,11 @@ hostname = "<%= @hostname %>"
   ### optional  extra tags  following the  template.  Multiple  tags should  be
   ### separated by  commas and no spaces  similar to the line  protocol format.
   ### There can be only one default template.
-  templates = [ <%= @graphite_templates.map{ |template| "\"#{template}\"" }.join(',') %> ]
+  # templates = [
+  #   "*.app env.service.resource.measurement",
+  #   # Default template
+  #   "server.*",
+  # ]
 
 ###
 ### [collectd]
